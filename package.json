@@ -1,0 +1,25 @@
+{
+  "name": "read_score",
+  "version": "1.0.0",
+  "description": "Learn how to read musical score",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --hot --inline --mode development"
+  },
+  "author": "",
+  "repository": "https://github.com/mirko-san/read_score",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "svg.js": "^2.7.1",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.6",
+    "vue-style-loader": "^4.1.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "write-file-webpack-plugin": "^4.3.2"
+  }
+}
