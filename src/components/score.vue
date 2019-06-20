@@ -7,22 +7,35 @@ import SVG from "svg.js";
 
 export default {
   props: ["pickedNote", "obj"],
+  data: function(){
+    return {
+      thisNote: '',
+    }
+  },
   mounted: function() {
-    var draw = SVG("score").size(700, 500);
+    const draw_width = 700;
+    const interval = 58;
+    var draw = SVG("score").size(draw_width, 500);
 
     draw.image("img/clef_g.png", 157, 415);
-    draw.line(0, 85, 700, 85).stroke({ width: 1 });
-    draw.line(0, 85 + 58 * 1, 700, 85 + 58 * 1).stroke({ width: 1 });
-    draw.line(0, 85 + 58 * 2, 700, 85 + 58 * 2).stroke({ width: 1 });
-    draw.line(0, 85 + 58 * 3, 700, 85 + 58 * 3).stroke({ width: 1 });
-    draw.line(0, 85 + 58 * 4, 700, 85 + 58 * 4).stroke({ width: 1 });
 
-    draw
+    // 五線譜
+    for (let index = 0; index < 5; index++) {
+      draw.line(0, 85 + interval * index, draw_width, 85 + interval * index).stroke({ width: 1 });
+    }
+
+    // 音符
+    this.thisNote = draw
       .ellipse(70, 58)
       // .fill('none')
       // .stroke({ width: 4 })
-      .move(350, this.obj[this.pickedNote].y)
-      .transform({ rotation: 125 });
+      .move(draw_width / 2, this.obj[this.pickedNote].y);
+
+  },
+  watch: {
+    pickedNote: function(newVal){
+      this.thisNote.y(this.obj[newVal].y)
+    }
   }
 };
 </script>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <score v-if="score" :pickedNote="pickedNote" :obj="obj"></score>
-    <p v-if="score">現在表示しているのは {{ pickedNote }} {{ obj[pickedNote].jp }}</p>
+    <score v-if="score" :pickedNote="note" :obj="obj"></score>
+    <button @click="updateScore">更新</button>
+    <p v-if="score">現在表示しているのは {{ note }} {{ obj[note].jp }}</p>
   </div>
 </template>
 
@@ -60,15 +61,19 @@ export default {
           jp: "ファ",
           y: 85 + 58 * 0 - 29
         }
-      }
+      },
     };
   },
   computed: {
-    pickedNote: function() {
+    note: function(){
+      return this.$store.state.note;
+    }
+  },
+  methods: {
+    updateScore: function(){
       const keys = Object.keys(this.obj);
       const pick = keys[Math.floor(Math.random() * keys.length)];
-      console.log(pick);
-      return pick;
+      this.$store.commit('updateNote', pick);
     }
   }
 };
