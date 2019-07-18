@@ -64,6 +64,9 @@ export default {
       },
     };
   },
+  created: function(){
+    this.updateScore();
+  },
   computed: {
     note: function(){
       return this.$store.state.note;

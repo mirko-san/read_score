@@ -6,7 +6,7 @@ import App from '../components/App.vue';
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
-    note: 'c4',
+    note: '',
   },
   mutations: {
     updateNote (state, objKey) {
