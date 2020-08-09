@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import score from "@/components/Score.vue";
+import score from '@/components/Score.vue';
 
 export default {
   components: {
@@ -18,62 +18,62 @@ export default {
       score: true,
       obj: {
         c4: {
-          jp: "ド",
+          jp: 'ド',
           y: 85 + 58 * 5 - 29
         },
         d4: {
-          jp: "レ",
+          jp: 'レ',
           y: 85 + 58 * 4
         },
         e4: {
-          jp: "ミ",
+          jp: 'ミ',
           y: 85 + 58 * 4 - 29
         },
         f4: {
-          jp: "ファ",
+          jp: 'ファ',
           y: 85 + 58 * 3
         },
         g4: {
-          jp: "ソ",
+          jp: 'ソ',
           y: 85 + 58 * 3 - 29
         },
         a4: {
-          jp: "ラ",
+          jp: 'ラ',
           y: 85 + 58 * 2
         },
         b4: {
-          jp: "シ",
+          jp: 'シ',
           y: 85 + 58 * 2 - 29
         },
         c5: {
-          jp: "ド",
+          jp: 'ド',
           y: 85 + 58 * 1
         },
         d5: {
-          jp: "レ",
+          jp: 'レ',
           y: 85 + 58 * 1 - 29
         },
         e5: {
-          jp: "ミ",
+          jp: 'ミ',
           y: 85 + 58 * 0
         },
         f5: {
-          jp: "ファ",
+          jp: 'ファ',
           y: 85 + 58 * 0 - 29
         }
-      },
+      }
     };
   },
-  created: function(){
+  created: function() {
     this.updateScore();
   },
   computed: {
-    note: function(){
+    note: function() {
       return this.$store.state.note;
     }
   },
   methods: {
-    updateScore: function(){
+    updateScore: function() {
       const keys = Object.keys(this.obj);
       const pick = keys[Math.floor(Math.random() * keys.length)];
       this.$store.commit('updateNote', pick);
