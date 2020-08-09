@@ -17,7 +17,7 @@ export default {
     const interval = 58;
     var draw = SVG('score').size(draw_width, 500);
 
-    draw.image('img/clef_g.png', 157, 415);
+    draw.image(require('../assets/clef_g.png'), 157, 415);
 
     // 五線譜
     for (let index = 0; index < 5; index++) {
